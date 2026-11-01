@@ -2,7 +2,7 @@
 
 Personal portfolio of **Muhammad Arslan**, Senior Software Engineer (Flutter and Full Stack) based in Frankfurt am Main, Germany.
 
-**Live site:** https://your-site.netlify.app
+**Live site:** https://muhammadarslan-dev.netlify.app/
 
 ![React](https://img.shields.io/badge/React-18-149ECA?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
