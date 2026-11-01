@@ -1,87 +1,103 @@
 # Muhammad Arslan, Portfolio
 
-React 18 + Vite + Tailwind CSS + Framer Motion. Light and dark mode, fully responsive.
+Personal portfolio of **Muhammad Arslan**, Senior Software Engineer (Flutter and Full Stack) based in Frankfurt am Main, Germany.
 
-## Run it
+**Live site:** https://your-site.netlify.app
 
-You need **Node.js 18 or newer** (check with `node -v`; download from https://nodejs.org).
+![React](https://img.shields.io/badge/React-18-149ECA?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-0055FF?logo=framer&logoColor=white)
+
+## About the project
+
+A single page portfolio that shows my work as a mobile and full stack engineer: the apps I have built, where I have worked, my skills and my education. The hero shows a phone that cycles through screens of real apps I worked on, including Jazz Tamasha (50M+ users).
+
+I built it so that content, theme and images live in their own files, separate from the components. Updating the site means editing data, not JSX.
+
+### Features
+
+- Light and dark mode, following the device setting until the visitor picks one
+- Fully responsive, from small phones to 4K screens, with width and spacing set per screen size
+- Animations with Framer Motion: page load sequence, hero phone carousel, animated project filters, expandable job details
+- Respects "reduce motion" settings on the visitor's device
+- Keyboard accessible, with visible focus states, a skip link and ARIA labels
+- Active section highlighting in the navigation
+- No backend and no tracking
+
+## Tech stack
+
+| Area       | Tools                                         |
+| ---------- | --------------------------------------------- |
+| Framework  | React 18                                      |
+| Build tool | Vite 5                                        |
+| Styling    | Tailwind CSS 3, theme driven by CSS variables |
+| Animation  | Framer Motion                                 |
+| Icons      | Lucide                                        |
+| Hosting    | Netlify                                       |
+
+## Run it locally
+
+You need Node.js 18 or newer.
 
 ```bash
-# 1. go into the project folder
-cd arslan-portfolio
-
-# 2. install packages (only the first time)
+git clone https://github.com/arslan325/portfolio.git
+cd portfolio
 npm install
-
-# 3. start the dev server
 npm run dev
 ```
 
-Open the address it prints (usually http://localhost:5173). The page reloads by itself when you save a file.
+Open http://localhost:5173.
 
-### Build for production
+Other commands:
 
 ```bash
-npm run build     # creates the dist/ folder
-npm run preview   # checks the built version locally
+npm run build     # production build in dist/
+npm run preview   # serve the production build locally
 ```
-
-### Put it online (free)
-
-- **Netlify:** drag the `dist/` folder onto https://app.netlify.com/drop, or connect your GitHub repo with build command `npm run build` and publish folder `dist`.
-- **Vercel:** import the GitHub repo at https://vercel.com/new. It detects Vite on its own.
-
-## Where to change things
-
-You never need to edit a component to change content, colors or images.
-
-| What | File |
-| --- | --- |
-| Colors (light and dark), fonts, corner radius, default mode | `src/config/theme.js` |
-| Page width, left and right spacing, text size per screen size | `src/config/layout.js` |
-| Name, headline, intro, email, phone, socials, stats, About text, CV button | `src/data/profile.js` |
-| Jobs | `src/data/experience.js` |
-| Projects, links, filters, which apps show in the hero phone | `src/data/projects.js` |
-| Skills | `src/data/skills.js` |
-| Education section and languages | `src/data/education.js` |
-| Menu items, section titles, footer | `src/data/site.js` |
-| All images | `src/assets/images/` (imports listed in `index.js`) |
-
-### Images
-
-To change an image:
-
-1. Put your file in `src/assets/images/` (photo) or `src/assets/images/projects/` (screenshots).
-2. Either give it the same name as the placeholder, or update the import in `src/assets/images/index.js`, for example:
-   ```js
-   import tamasha from './projects/tamasha.png';
-   ```
-
-Screenshots look best in a phone ratio (about 9:19.5, for example 1080 x 2340 px). Your photo should be square.
-
-### CV download button
-
-Put your PDF in the `public/` folder, then set in `src/data/profile.js`:
-```js
-resumeUrl: '/Muhammad_Arslan_CV.pdf',
-```
-Leave it as `''` to hide the button.
-
-### Adding a project
-
-Copy one object in `src/data/projects.js`, change the fields, and add its screenshot to `index.js` in the images folder. Set `featured: true` to make it a wide card, and `showInHero: true` to show it in the hero phone.
 
 ## Project structure
 
 ```
 src/
-  config/theme.js        colors, fonts, radius
-  config/layout.js       page width and side spacing per screen size
-  data/                  all text and links
-  assets/images/         all images + index.js
-  components/            page sections (Hero, About, Experience, Projects, Skills, Contact)
-  context/ThemeContext   light/dark mode switch
-  lib/applyTheme.js      turns theme.js into CSS variables (no need to edit)
+  config/
+    theme.js        colors (light and dark), fonts, corner radius
+    layout.js       page width, side spacing and text size per screen size
+  data/
+    profile.js      name, headline, contact details, About text
+    experience.js   work history
+    projects.js     projects, links and filters
+    skills.js       skill groups
+    education.js    degrees and languages
+    site.js         navigation and section titles
+  assets/images/    profile photo and project screenshots (imported in index.js)
+  components/       one component per section
+  context/          light and dark mode state
+  lib/              turns theme.js and layout.js into CSS variables
 ```
 
-Animations turn off automatically for visitors who set "reduce motion" on their device.
+### How the theme works
+
+`src/config/theme.js` holds every color as a hex value. At startup, `src/lib/applyTheme.js` turns them into CSS variables for light and dark mode, and Tailwind reads those variables (see `tailwind.config.js`). Changing one value in `theme.js` updates the whole site, in both modes.
+
+`src/config/layout.js` works the same way for the page width and side spacing at each screen size.
+
+## Deployment
+
+The site is deployed on Netlify. Build settings are in `netlify.toml`, so connecting the repo is enough:
+
+1. In Netlify, choose **Add new site, Import an existing project**, and pick this repo.
+2. Netlify reads `netlify.toml` (build command `npm run build`, publish folder `dist`).
+3. Every push to `main` deploys automatically.
+
+## Using this as a template
+
+You are welcome to learn from the code or use the structure for your own portfolio. Please do not reuse my personal content: the text, my photo, my project descriptions and my work history.
+
+To make it yours, edit the files in `src/data/`, replace the images in `src/assets/images/`, and adjust the colors in `src/config/theme.js`.
+
+## Contact
+
+- Email: [maherarslan325@gmail.com](mailto:maherarslan325@gmail.com)
+- LinkedIn: [linkedin.com/in/arslan325](https://www.linkedin.com/in/arslan325/)
+- GitHub: [github.com/arslan325](https://github.com/arslan325)
