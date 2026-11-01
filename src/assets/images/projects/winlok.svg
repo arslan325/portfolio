@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 780" width="360" height="780">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#8A4B0B"/><stop offset="1" stop-color="#3e2104"/></linearGradient></defs>
+<rect width="360" height="780" fill="url(#g)"/>
+<text x="28" y="38" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#fff" opacity=".85">9:41</text>
+<text x="28" y="112" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#fff">Winlok</text>
+<text x="28" y="140" font-family="Arial, sans-serif" font-size="15" fill="#fff" opacity=".75">Play today</text>
+<rect x="24" y="168" width="312" height="200" rx="22" fill="#fff" opacity=".16"/>
+<circle cx="180" cy="268" r="30" fill="#fff" opacity=".9"/>
+<path d="M172 254 L194 268 L172 282 Z" fill="#8A4B0B"/>
+<rect x="24" y="392" width="148" height="160" rx="18" fill="#fff" opacity=".12"/>
+<rect x="188" y="392" width="148" height="160" rx="18" fill="#fff" opacity=".12"/>
+<rect x="24" y="572" width="312" height="18" rx="9" fill="#fff" opacity=".2"/>
+<rect x="24" y="602" width="220" height="18" rx="9" fill="#fff" opacity=".14"/>
+</svg>
